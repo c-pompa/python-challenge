@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "C:\\Users\\pompa\\Anaconda3\\python.exe",
+    "terminal.integrated.shellArgs.windows": ["/K", "C:\\Users\\pompa\\Anaconda3\\Scripts\\activate.bat C:\\Users\\pompa\\Anaconda3 & conda activate R"]
+}
