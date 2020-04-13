@@ -58,7 +58,7 @@ with open(csvpath) as csvfile:
             #print(f"Greatest Increase in Profits: {rowmin[0]} ${rowmin[1]}")
 
 # Export a text file with the results
-file1 = open("main.txt","w")
+file1 = open("./analysis/main.txt","w")
 file1.write(
 f'''
 Financial Analysis
