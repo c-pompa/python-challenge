@@ -1,5 +1,4 @@
 # * Your task is to create a Python script that analyzes the records to calculate each of the following:
-
 import csv
 import pathlib
 
@@ -30,60 +29,50 @@ with open(csvpath) as csvfile:
         pandl_list.append(int(row[1]))
         # The average of the changes in "Profit/Losses" over the entire period                               
         changes = [pandl_list[i + 1] - pandl_list[i] for i in range(len(pandl_list)-1)]
-          #  pandl_changes.append(changes)
+        changes.insert(0, 0)
         avg_change = round(sum(changes) / total_months, 2)
 
         data_dict = {"Date": bank_dates, "Profit/Losses": pandl_list, "Difference": changes}
         
+  
+    #make index as values for dict rows / not used
+    #res = dict(zip(changes, range(2, len(changes)+1))) 
+    # Zip: Combing two lists to iterate through
+    search = zip(bank_dates, (changes))
 
-        key = list(data_dict.values())
-        #key2 = max(key)
+    # The greatest increase in profits (date and amount) over the entire period
+    # Iterate through conbined lists
+    for row in search:
+        if row[1] == max(data_dict["Difference"]):
+            increase = row[1]
+            increase_date = row[0]
+            break
+            #print(f"Greatest Increase in Profits: {row[0]} ${row[1]}")
 
-            
-        # temp_dict = {}
-        # for key, value in data_dict.items():
+    # The greatest decrease in losses (date and amount) over the entire period      
+    for rowmin in search:
+        if rowmin[1] == min(data_dict["Difference"]):
+            decrease = rowmin[1]
+            decrease_date = rowmin[0]
+            break
+            #print(f"Greatest Increase in Profits: {rowmin[0]} ${rowmin[1]}")
 
-        #     if value == 10000:
-        #         temp_dict[key] = value
-        #     else:
-        #         print("doesnt work")
-        #     break
+    # Export a text file with the results
+    file1 = open("main.txt","w")
+    file1.write("Financial Analysis\n") 
+    file1.write("----------------------------\n") 
+    file1.write(f"Total Months: {total_months}\n") 
+    file1.write(f"Total: ${sum_months}\n") 
+    file1.write(f"Average  Change: ${avg_change}\n") 
+    file1.write(f"Greatest Increase in Profits: {row[0]} ${row[1]}\n") 
+    file1.write(f"Greatest Decrease in Profits: {rowmin[0]} ${rowmin[1]}\n") 
+    file1.close() 
 
-
-        #maxChanges_list = max(data_dict["Difference"])
-        #maxChange = (maxChanges_list)
-
-    # Another option to run the for loop involves Python's enumerate method
-    #This method obtains both the index and the value of an item during a for loop
-       
-        
-
-    # print(max(maxChanges))
-
+    # Export results to terminal
     print("Financial Analysis") 
     print("----------------------------") 
     print(f"Total Months: {total_months}")
     print(f"Total: ${sum_months}")
     print(f"Average  Change: ${avg_change}")
-    print(data_dict["Difference"])
-    #print(f"Greatest Increase in Profits: ${max(maxChanges)}")
-
-
-
-#   * The greatest increase in profits (date and amount) over the entire period
-
-#   * The greatest decrease in losses (date and amount) over the entire period
-
-# * As an example, your analysis should look similar to the one below:
-
-#   ```text
-#   Financial Analysis
-#   ----------------------------
-#   Total Months: 86
-#   Total: $38382578
-#   Average  Change: $-2315.12
-#   Greatest Increase in Profits: Feb-2012 ($1926159)
-#   Greatest Decrease in Profits: Sep-2013 ($-2196167)
-#   ```
-
-# * In addition, your final script should both print the analysis to the terminal and export a text file with the results.
+    print(f"Greatest Increase in Profits: {row[0]} ${row[1]}")
+    print(f"Greatest Decrease in Profits: {rowmin[0]} ${rowmin[1]}")
