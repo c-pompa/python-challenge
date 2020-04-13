@@ -57,22 +57,28 @@ with open(csvpath) as csvfile:
             break
             #print(f"Greatest Increase in Profits: {rowmin[0]} ${rowmin[1]}")
 
-    # Export a text file with the results
-    file1 = open("main.txt","w")
-    file1.write("Financial Analysis\n") 
-    file1.write("----------------------------\n") 
-    file1.write(f"Total Months: {total_months}\n") 
-    file1.write(f"Total: ${sum_months}\n") 
-    file1.write(f"Average  Change: ${avg_change}\n") 
-    file1.write(f"Greatest Increase in Profits: {row[0]} ${row[1]}\n") 
-    file1.write(f"Greatest Decrease in Profits: {rowmin[0]} ${rowmin[1]}\n") 
-    file1.close() 
+# Export a text file with the results
+file1 = open("main.txt","w")
+file1.write(
+f'''
+Financial Analysis
+----------------------------
+Total Months: {total_months}
+Total: ${sum_months}
+Average  Change: ${avg_change}
+Greatest Increase in Profits: {row[0]} ${row[1]}
+Greatest Decrease in Profits: {rowmin[0]} ${rowmin[1]}
+''')
+file1.close() 
 
-    # Export results to terminal
-    print("Financial Analysis") 
-    print("----------------------------") 
-    print(f"Total Months: {total_months}")
-    print(f"Total: ${sum_months}")
-    print(f"Average  Change: ${avg_change}")
-    print(f"Greatest Increase in Profits: {row[0]} ${row[1]}")
-    print(f"Greatest Decrease in Profits: {rowmin[0]} ${rowmin[1]}")
+# # Export results to terminal
+print(
+f'''
+Financial Analysis 
+----------------------------
+Total Months: {total_months}
+Total: ${sum_months}
+Average Change: ${avg_change}
+Greatest Increase in Profits: {row[0]} ${row[1]}
+Greatest Decrease in Profits: {rowmin[0]} ${rowmin[1]}
+''')
