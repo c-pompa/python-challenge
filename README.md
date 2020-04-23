@@ -1,9 +1,10 @@
-# Python Challenge
+# Python Challenge - Financial Data & Voter Polling Analysis
 
 ## PyBank Assigmment
-Tasked with creating a Python script for analyzing financial records of a company. Given financial data via a .csv file. 
+Created a Python script for analyzing financial records of a company. Given financial data via a .csv. 
 
-The following tasks were performed to analyze and calculate the following: :
+To analyze and calculate the results found, the following tasks were performed: 
+
   - The total number of months included in the dataset
   - The net total amount of "Profit/Losses" over the entire period
   - The average of the changes in "Profit/Losses" over the entire period
@@ -23,7 +24,7 @@ In addition to the output being printed within the console, the output was also 
 
 ## PyPoll Assignment
 
-Tasked to create a Python script that analyzes votes and calculates the following below. The goal is to "help a small, rural town modernize its voting process." Provided a .csv data set composed of three columns. 
+Created a Python script that analyzes votes and calculates the following below. The goal is to help a small, rural town modernize its voting process. Provided a .csv data set composed of three columns. 
 
   - The total number of votes cast
   - A complete list of candidates who received votes
@@ -35,8 +36,7 @@ Tasked to create a Python script that analyzes votes and calculates the followin
 
   - candidates comprehension list was challenging as I needed to provide a complete list of candidates who received votes. This processes needed to scan the candidates column, find the names of the candidates, ignore listing duplicate named, and provide a count of how many votes each person found received. I used the collections library to assist with created this comprehensions list.
 
-
- -- a good amount of the code was resued from the PyPoll assignment. While developing the code for the first assignment, the goal was to allow the code to be universal across many projects.
+  - A good amount of the code was resued from the PyPoll assignment. While developing the code for the first assignment, the goal was to allow the code to be universal across many projects.
 
 
 # Acknowledgments
